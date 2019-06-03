@@ -35,6 +35,25 @@ def bubble_sort(arr):
     return arr
 
 # STRETCH: implement the Count Sort function below
+#NOT MY CODE. JUST WANTED TO HAVE THIS AS A REFERENCE MOVING FORWARD
 def count_sort( arr, maximum=-1 ):
+    if maximum > 0:
+        counts = [0] * maximum
+    else:
+        counts = []
+
+    for item in arr:
+        if item < 0:
+            return 'negative numbers not allowed'
+        if maximum < 0 and item + 1 > len(counts):
+            extend_count = item + 1 - len(counts)
+            counts = counts + [0] * extend_count
+        counts[item] += 1
+
+    arr = []
+
+    for index, item in enumerate(counts):
+        if item:
+            arr = arr + [index] * item
 
     return arr
